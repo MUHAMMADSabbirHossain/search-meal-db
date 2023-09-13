@@ -1,5 +1,11 @@
 // import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import NavBar from './Components/NavBar/NavBar';
+import Home from './Components/Home/Home';
+import NotFound from './Components/NotFound/NotFound';
+import About from './Components/About/About';
+import MealDetail from './Components/MealDetail/MealDetail';
 
 function App() {
   return (
@@ -19,7 +25,15 @@ function App() {
         </a>
       </header> */}
 
-    </div>
+      <header><NavBar></NavBar></header>
+
+      <Routes>
+        <Route path="/" element={<Home></Home>}></Route>
+        <Route path=":idmeal" element={<MealDetail></MealDetail>}></Route>
+        <Route path="/about" element={<About></About>}></Route>
+        <Route path="*" element={<NotFound></NotFound>}></Route>
+      </Routes>
+    </div >
   );
 }
 
